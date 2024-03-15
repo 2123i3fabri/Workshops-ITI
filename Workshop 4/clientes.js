@@ -1,5 +1,6 @@
-window.onload = function() {
+window.onload = function () {
     document.getElementById('btnGuardar').addEventListener('click', guardarCliente);
+    mostrarClientes();
 }
 
 function guardarCliente() {
@@ -14,7 +15,7 @@ function guardarCliente() {
     };
 
     var clientes;
-    if(localStorage.getItem('clientes') === null) {
+    if (localStorage.getItem('clientes') === null) {
         clientes = [];
     } else {
         clientes = JSON.parse(localStorage.getItem('clientes'));
@@ -27,4 +28,19 @@ function guardarCliente() {
     document.getElementById('nombre').value = '';
     document.getElementById('apellido').value = '';
     document.getElementById('telefono').value = '';
+
+    mostrarClientes();
+}
+
+function mostrarClientes() {
+    var clientes = JSON.parse(localStorage.getItem('clientes'));
+    var tablaClientes = document.getElementById('tablaClientes');
+
+    // Limpiar la tabla
+    tablaClientes.innerHTML = '<tr><th>Nombre</th><th>Apellido</th><th>Numero Telefonico</th></tr>';
+
+    // Agregar los clientes a la tabla
+    for (var i = 0; i < clientes.length; i++) {
+        tablaClientes.innerHTML += '<tr><td>' + clientes[i].nombre + '</td><td>' + clientes[i].apellido + '</td><td>' + clientes[i].telefono + '</td></tr>';
+    }
 }

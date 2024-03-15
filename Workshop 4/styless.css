@@ -28,7 +28,7 @@ body {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #4552e2;
     color: white;
     border: none;
     border-radius: 5px;
@@ -36,5 +36,23 @@ body {
 }
 
 .formulario button:hover {
-    background-color: #45a049;
+    background-color: #4552e2;
+}
+
+#tablaClientes {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#tablaClientes th,
+#tablaClientes td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#tablaClientes th {
+    background-color: #45b1e2;
+    color: white;
 }
